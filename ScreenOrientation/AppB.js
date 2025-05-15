@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Dimensions, Pressable, Button } from 'react-native';
+import { Text, View, StyleSheet, Dimensions, Alert, Image, Pressable, Button } from 'react-native';
 import { Video } from 'expo-av';
 import Constants from 'expo-constants';
 import * as ScreenOrientation from 'expo-screen-orientation';
@@ -9,6 +9,7 @@ import * as ScreenOrientation from 'expo-screen-orientation';
 
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
+
 
 export default function App() {
     const video = React.useRef(null);
@@ -40,11 +41,11 @@ export default function App() {
         </Text>
       </Pressable>
    
-      <View style={styles.container3}>
-        <Text style={styles.paragraph}>
+      { number === 2?<View style={styles.container3}>
+       <Text style={styles.paragraph}>
        This is a place where you could have a description of the video or some other information. Because the App is in "Portrait" the video can only use the width of the screen. Therefore there is a lot of left over space that can be used. 
         </Text>
-        </View>
+        </View>:null}
         <View style={styles.container3}>
          <Video
         ref={video}
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
   },
     video: {
     alignSelf: 'center',
-    width: 349,
+    width: 800,
     height: 220,
   },
   buttons: {
